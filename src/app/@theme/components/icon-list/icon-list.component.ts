@@ -2,13 +2,13 @@ import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
-  HostBinding,
   Input,
+  OnDestroy,
   Output,
+  ViewChildren,
 } from '@angular/core';
-
-const FULL = 'full';
-const ICON = 'icon';
+import { takeWhile } from 'rxjs/operators';
+import { NbLayoutScrollService, NbPopoverDirective } from '@nebular/theme';
 
 @Component({
   selector: 'eva-icon-list',
@@ -16,25 +16,34 @@ const ICON = 'icon';
   styleUrls: ['./icon-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class IconListComponent {
+export class IconListComponent implements OnDestroy {
+
+  private alive = true;
+
+  @ViewChildren(NbPopoverDirective) popovers: NbPopoverDirective[];
 
   @Input() icons: string[];
-  @Input() view: string;
   @Input() isMobileView: boolean = false;
 
   @Output() clickIcon: EventEmitter<string> = new EventEmitter();
 
-  @HostBinding('class.full-icon-mode')
-  get isFullViewMode() {
-    return this.view === FULL;
-  }
-
-  @HostBinding('class.only-icon-mode')
-  get isIconViewMode() {
-    return this.view === ICON;
+  constructor(private scrollService: NbLayoutScrollService) {
+    if (this.isMobileView) {
+      this.scrollService.onScroll()
+        .pipe(takeWhile(() => this.alive))
+        .subscribe(() => {
+          this.popovers.forEach((popover) => {
+            popover.hide();
+          });
+        });
+    }
   }
 
   clickIconHandler(icon: string) {
     this.clickIcon.emit(icon);
+  }
+
+  ngOnDestroy() {
+    this.alive = false;
   }
 }

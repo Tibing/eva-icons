@@ -47,25 +47,9 @@
   // modals
 
   @include media-breakpoint-down(xl) {
-    /deep/ nb-layout .layout-container {
-      max-width: 880px;
-    }
-
     nb-layout-header /deep/ nav {
       height: 9rem;
       display: block;
-    }
-  }
-
-  @include media-breakpoint-down(lg) {
-    /deep/ nb-layout .layout-container {
-      max-width: 700px;
-    }
-  }
-
-  @include media-breakpoint-down(md) {
-    /deep/ nb-layout .layout-container {
-      max-width: 1100px;
     }
   }
 }

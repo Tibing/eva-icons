@@ -2,16 +2,13 @@
          (click)="clickIconHandler(icon)">
   <nb-card-body *ngIf="isMobileView; else desctop"
                 [nbPopover]="icon">
-    <i [innerHTML]="icon | eva"></i>
+    <i [innerHTML]="icon | eva: 30: 30"></i>
   </nb-card-body>
 
   <ng-template #desctop>
-    <nb-card-body>
-      <i [innerHTML]="icon | eva"></i>
-      <span *ngIf="isFullViewMode"
-            class="icon-class">
-      {{ icon }}
-    </span>
+    <nb-card-body [nbPopover]="icon"
+                  [nbPopoverMode]="'hint'">
+      <i [innerHTML]="icon | eva: 30: 30"></i>
     </nb-card-body>
   </ng-template>
 </nb-card>

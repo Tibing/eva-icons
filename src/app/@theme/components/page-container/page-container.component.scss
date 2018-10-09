@@ -71,11 +71,6 @@
   }
   // icons container
 
-  eva-list-view-switcher {
-    position: absolute;
-    left: calc(100% + 50px);
-  }
-
   eva-icon-list {
     margin-top: 5rem;
   }
@@ -100,6 +95,11 @@
     font-weight: nb-theme(font-weight-bold);
     background-color: nb-theme(switcher-view-bg);
     border-radius: 0.25rem;
+  }
+
+  @include media-breakpoint-down(lg) {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   @include media-breakpoint-down(md) {
@@ -129,10 +129,6 @@
 
     eva-icon-list {
       margin-top: 2rem;
-    }
-
-    eva-list-view-switcher {
-      display: none;
     }
   }
 }

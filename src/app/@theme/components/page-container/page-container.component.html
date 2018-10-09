@@ -1,7 +1,7 @@
 <h1>Eva icons</h1>
 
 <div class="search">
-  <i [innerHTML]="'search-outline' | eva : 30: 30: '#3366ff'"></i>
+  <i [innerHTML]="'search-outline' | eva: 30: 30: '#3366ff'"></i>
   <input class="search-input"
          #searchInput
          autocomplete="off"
@@ -10,16 +10,8 @@
 </div>
 
 <div class="icons" #iconsBlock>
-  <eva-list-view-switcher #listViewSwitcher
-                          class="eva-list-view-switcher"
-                          *ngIf="icons.length !== 0"
-                          [view]="view"
-                          (changeView)="changeView($event)">
-  </eva-list-view-switcher>
-
   <eva-icon-list *ngIf="!noSearchResults"
                  [icons]="icons"
-                 [view]="view"
                  [isMobileView]="isMobileMode"
                  (clickIcon)="clickIcon($event)">
   </eva-icon-list>

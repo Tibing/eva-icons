@@ -4,11 +4,15 @@
 @include nb-install-component() {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 
   nb-card {
+    width: 12%;
     overflow: hidden;
     cursor: pointer;
+    border: none;
+    align-items: center;
+    border-radius: 0.25rem;
 
     &:hover {
       background-color: nb-theme(list-icon-item-bg);
@@ -16,6 +20,7 @@
   }
 
   nb-card-body {
+    width: 100%;
     font-size: nb-theme(font-size-sm);
     display: flex;
     flex-direction: column;
@@ -24,46 +29,11 @@
     overflow: hidden;
     text-overflow: ellipsis;
     color: nb-theme(list-icon-item-fg);
+    padding: 3.125rem 1.25rem;
 
     i {
       font-size: 1.5rem;
-    }
-  }
-
-  &.full-icon-mode {
-    nb-card {
-      width: 24%;
-
-      &:hover {
-        border-color: nb-theme(list-icon-item-bg);
-      }
-    }
-
-    nb-card-body {
-      padding: 1rem 1.25rem;
-
-      span {
-        margin-top: 0.5rem;
-      }
-    }
-  }
-
-  &.only-icon-mode {
-    justify-content: space-around;
-
-    nb-card {
-      width: 12%;
-      border: none;
-      align-items: center;
-      border-radius: 0.25rem;
-    }
-
-    nb-card-body {
-      padding: 3.125rem 1.25rem;
-
-      i {
-        font-weight: nb-theme(font-weight-bold);
-      }
+      font-weight: nb-theme(font-weight-bold);
     }
   }
 
@@ -78,29 +48,33 @@
     }
   }
 
-  @include media-breakpoint-down(lg) {
-    nb-card-body {
-      font-size: nb-theme(font-size-xs);
+  @include media-breakpoint-down(md) {
+    nb-card {
+      width: 15%;
     }
 
-    &.only-icon-mode {
-      nb-card {
-        width: 25%;
-      }
-
-      nb-card-body {
-        padding: 1.5rem;
-
-        i {
-          font-size: 0;
-        }
-      }
+    nb-card-body {
+      padding: 39% 0;
     }
   }
 
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(sm) {
+    nb-card {
+      width: 20%;
+    }
+
     nb-card-body {
-      font-size: nb-theme(font-size-sm);
+      padding: 39% 0;
+    }
+  }
+
+  @include media-breakpoint-down(is) {
+    nb-card {
+      width: 25%;
+    }
+
+    nb-card-body {
+      padding: 28% 0;
     }
   }
 }
