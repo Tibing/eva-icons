@@ -3,16 +3,18 @@
 
 @include nb-install-component() {
   $primary: nb-theme(color-primary);
-  $search-input-padding-sides: 2.5rem;
+  $search-input-padding-sides: 2rem;
   $search-input-padding-tops: 1.625rem;
   $search-input-mobile-padding-sides: 0.5rem;
   $search-input-mobile-padding-tops: 1rem;
+  $search-placeholder-color: #a6aebd;
 
   margin-top: 3.5rem;
   margin-bottom: 4rem;
   display: block;
 
   h1 {
+    font-family: 'Raleway Extra Bold', sans-serif;
     color: $primary;
     font-size: 5rem;
     text-transform: capitalize;
@@ -27,7 +29,7 @@
     &::after {
       content: '';
       position: absolute;
-      border: 2px solid $primary;
+      border-top: 4px solid $primary;
       width: 100%;
       left: 0;
       bottom: 0;
@@ -50,13 +52,13 @@
   .search-input {
     width: 100%;
     border: none;
-    line-height: 0.5rem;
+    line-height: normal;
     font-size: nb-theme(font-size-xlg);
     padding: $search-input-padding-tops $search-input-padding-sides;
 
     &::placeholder {
-      color: nb-theme(color-fg-text);
-      font-weight: nb-theme(font-weight-light);
+      color: $search-placeholder-color;
+      font-size: 1.5rem;
     }
 
     &::-ms-clear {
@@ -76,11 +78,8 @@
   }
 
   .spinner-container {
-    position: fixed;
-    left: 0;
-    top: 0;
     width: 100%;
-    height: 100%;
+    height: 25vh;
   }
 
   .info-message {

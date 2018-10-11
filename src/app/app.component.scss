@@ -3,6 +3,7 @@
 
 @include nb-install-component() {
   $content-width: nb-theme(content-width);
+  $popover-border-width: calc(#{nb-theme(popover-arrow-size)} - 2px);
 
   .content-center {
     max-width: $content-width;
@@ -18,6 +19,16 @@
 
     h2 {
       color: black;
+    }
+  }
+
+  /deep/ nb-popover {
+    .arrow {
+      &::after {
+        border-left-width: $popover-border-width;
+        border-right-width: $popover-border-width;
+        border-bottom-width: $popover-border-width;
+      }
     }
   }
 

@@ -12,7 +12,7 @@ import { IconListComponent } from './components/icon-list/icon-list.component';
 // components
 
 // services
-import evaServices from './services';
+import { evaServices } from './services';
 // services
 
 // pipes

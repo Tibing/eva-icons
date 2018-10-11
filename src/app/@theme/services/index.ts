@@ -1,5 +1,6 @@
 import { EvaVersionService } from './version.service';
 
-export default [
+
+export const evaServices = [
   EvaVersionService,
 ];

@@ -1,0 +1,34 @@
+$raleway-font-path: '/assets/fonts/raleway' !default;
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('#{$raleway-font-path}/Raleway-Regular.eot');
+  src: local('Raleway'), local('Raleway-Regular'),
+  url('#{$raleway-font-path}/Raleway-Regular.eot?#iefix') format('embedded-opentype'),
+  url('#{$raleway-font-path}/Raleway-Regular.woff') format('woff'),
+  url('#{$raleway-font-path}/Raleway-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Raleway Bold';
+  src: url('#{$raleway-font-path}/Raleway-Bold.eot');
+  src: local('Raleway Bold'), local('Raleway-Bold'),
+  url('#{$raleway-font-path}/Raleway-Bold.eot?#iefix') format('embedded-opentype'),
+  url('#{$raleway-font-path}/Raleway-Bold.woff') format('woff'),
+  url('#{$raleway-font-path}/Raleway-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Raleway Extra Bold';
+  src: url('#{$raleway-font-path}/Raleway-ExtraBold.eot');
+  src: local('Raleway ExtraBold'), local('Raleway-ExtraBold'),
+  url('#{$raleway-font-path}/Raleway-ExtraBold.eot?#iefix') format('embedded-opentype'),
+  url('#{$raleway-font-path}/Raleway-ExtraBold.woff') format('woff'),
+  url('#{$raleway-font-path}/Raleway-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
