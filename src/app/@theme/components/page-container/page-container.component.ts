@@ -15,7 +15,7 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { fromEvent } from 'rxjs/internal/observable/fromEvent';
 
-import { IconService, IconServiceData } from '../../../@core/data/icon.service';
+import { IconService, IconServiceData } from '../../../@core/data/service/icon.service';
 import { debounceTime, delay, map, mergeMap, takeWhile, tap } from 'rxjs/operators';
 import { DownloadIconComponent } from '../modals/download-icon/download-icon.component';
 

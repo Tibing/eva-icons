@@ -23,6 +23,8 @@
   }
 
   /deep/ nb-popover {
+    font-family: nb-theme(font-main), sans-serif;
+
     .arrow {
       &::after {
         border-left-width: $popover-border-width;

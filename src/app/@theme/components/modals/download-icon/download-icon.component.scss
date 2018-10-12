@@ -8,6 +8,7 @@
   nb-card {
     width: 600px;
     max-height: 620px;
+    font-family: nb-theme(font-main), sans-serif;
     background: $white;
     border: 2px solid $primary;
     border-radius: nb-theme(radius);

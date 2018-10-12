@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { EvaVersionService } from '../../services/version.service';
 import { NbMenuItem } from '@nebular/theme';
+import { UrlService } from '../../../@core/data/service/url.service';
 
 @Component({
   selector: 'eva-header',
@@ -9,6 +10,7 @@ import { NbMenuItem } from '@nebular/theme';
 })
 export class HeaderComponent {
 
+  zipUrl: string;
   currentVersion: string;
   mainMenu: NbMenuItem[] = [
     {
@@ -23,7 +25,9 @@ export class HeaderComponent {
     },
   ];
 
-  constructor(private versionService: EvaVersionService) {
+  constructor(private versionService: EvaVersionService,
+              private urlService: UrlService) {
     this.currentVersion = this.versionService.getEvoVersion();
+    this.zipUrl = this.urlService.getZippedIconsUrl();
   }
 }

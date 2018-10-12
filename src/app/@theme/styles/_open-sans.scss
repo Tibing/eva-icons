@@ -1,0 +1,27 @@
+$open-sans-font-path: '/assets/fonts/open-sans' !default;
+
+@font-face {
+  font-family: 'Open Sans Light';
+  font-style: normal;
+  font-weight: 300;
+  src: url('#{$open-sans-font-path}/open-sans-latin-light.eot');
+  src: local('Open Sans Light'), local('OpenSans-Light'),
+  url('#{$open-sans-font-path}/open-sans-latin-light.eot?#iefix') format('embedded-opentype'),
+  url('#{$open-sans-font-path}/open-sans-latin-light.woff2') format('woff2'),
+  url('#{$open-sans-font-path}/open-sans-latin-light.woff') format('woff'),
+  url('#{$open-sans-font-path}/open-sans-latin-light.ttf') format('truetype'),
+  url('#{$open-sans-font-path}/open-sans-latin-light.svg#OpenSans') format('svg');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('#{$open-sans-font-path}/open-sans-latin-regular.eot');
+  src: local('Open Sans Regular'), local('OpenSans-Regular'),
+  url('#{$open-sans-font-path}/open-sans-latin-regular.eot?#iefix') format('embedded-opentype'),
+  url('#{$open-sans-font-path}/open-sans-latin-regular.woff2') format('woff2'),
+  url('#{$open-sans-font-path}/open-sans-latin-regular.woff') format('woff'),
+  url('#{$open-sans-font-path}/open-sans-latin-regular.ttf') format('truetype'),
+  url('#{$open-sans-font-path}/open-sans-latin-regular.svg#OpenSans') format('svg');
+}

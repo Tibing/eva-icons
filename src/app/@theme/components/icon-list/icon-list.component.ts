@@ -28,19 +28,21 @@ export class IconListComponent implements OnDestroy {
   @Output() clickIcon: EventEmitter<string> = new EventEmitter();
 
   constructor(private scrollService: NbLayoutScrollService) {
-    if (this.isMobileView) {
       this.scrollService.onScroll()
-        .pipe(takeWhile(() => this.alive))
+        .pipe(takeWhile(() => this.alive && this.isMobileView))
         .subscribe(() => {
           this.popovers.forEach((popover) => {
             popover.hide();
           });
         });
-    }
   }
 
   clickIconHandler(icon: string) {
     this.clickIcon.emit(icon);
+  }
+
+  trackByFn(_, item) {
+    return item;
   }
 
   ngOnDestroy() {

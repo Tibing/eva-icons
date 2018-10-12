@@ -1,10 +1,12 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { IconService } from './icon.service';
+import { IconService } from './service/icon.service';
+import { UrlService } from './service/url.service';
 
 const SERVICES = [
   IconService,
+  UrlService,
 ];
 
 @NgModule({

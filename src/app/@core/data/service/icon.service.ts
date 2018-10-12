@@ -1,7 +1,7 @@
 import { of as observableOf,  Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
-import { icons } from '../../../../package-build/eva';
+import { icons } from '../../../../../package-build/eva';
 
 class Icons {
   fill: string[];

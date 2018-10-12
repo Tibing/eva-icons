@@ -1,4 +1,4 @@
-<nb-card *ngFor="let icon of icons"
+<nb-card *ngFor="let icon of icons; trackBy: trackByFn"
          (click)="clickIconHandler(icon)">
   <nb-card-body *ngIf="isMobileView; else desctop"
                 [nbPopover]="icon">
