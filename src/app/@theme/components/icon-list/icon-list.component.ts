@@ -22,7 +22,7 @@ export class IconListComponent implements OnDestroy {
 
   @ViewChildren(NbPopoverDirective) popovers: NbPopoverDirective[];
 
-  @Input() icons: string[];
+  @Input() icons: { name: string; order: number; }[];
   @Input() isMobileView: boolean = false;
 
   @Output() clickIcon: EventEmitter<string> = new EventEmitter();
@@ -41,9 +41,7 @@ export class IconListComponent implements OnDestroy {
     this.clickIcon.emit(icon);
   }
 
-  trackByFn(_, item) {
-    return item;
-  }
+  trackByFn = (_, item) => item.order;
 
   ngOnDestroy() {
     this.alive = false;

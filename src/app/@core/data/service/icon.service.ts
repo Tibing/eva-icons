@@ -2,6 +2,8 @@ import { of as observableOf,  Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 import { icons } from '../../../../../package-build/eva';
+import { fillOrder } from './fill-order-icons';
+import { outlineOrder } from './outline-order-icons';
 
 class Icons {
   fill: string[];
@@ -23,13 +25,30 @@ export class IconService {
     message: '',
   };
 
+  private sortIcons = (first, second) => first.order - second.order;
+
   constructor() {
     this.icons = Object.keys(icons)
-      .reduce((result, item): any => {
+      .reduce((result, item, index, iconsArray): any => {
         if (item.indexOf('outline') === -1) {
-          result['fill'] = result['fill'].concat(item);
+          const iconData = {
+            name: item,
+            order: fillOrder[item],
+          };
+
+          result['fill'] = result['fill'].concat(iconData);
         } else {
-          result['outline'] = result['outline'].concat(item);
+          const iconData = {
+            name: item,
+            order: outlineOrder[item],
+          };
+
+          result['outline'] = result['outline'].concat(iconData);
+        }
+
+        if (index === iconsArray.length - 1) {
+          result['outline'].sort(this.sortIcons);
+          result['fill'].sort(this.sortIcons);
         }
 
         return result;
@@ -44,7 +63,7 @@ export class IconService {
 
   getFilteredIconsData(searchKey: string, type: string): Observable<IconServiceData> {
     const foundIcons = this.icons[type].filter((item) => {
-      return item.indexOf(searchKey.toLowerCase()) !== -1;
+      return item.name.indexOf(searchKey.toLowerCase()) !== -1;
     });
 
     this.data.icons = foundIcons;
