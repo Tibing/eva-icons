@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 // components
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { HeaderNavComponent } from './components/header/nav/header-nav.component';
 import { DownloadIconComponent } from './components/modals/download-icon/download-icon.component';
 import { PageContainerComponent } from './components/page-container/page-container.component';
 import { ListViewSwitcherComponent } from './components/list-view-switcher/list-view-switcher.component';
@@ -51,6 +52,7 @@ const PIPES = [
   declarations: [
     FooterComponent,
     HeaderComponent,
+    HeaderNavComponent,
     DownloadIconComponent,
     PageContainerComponent,
     ListViewSwitcherComponent,

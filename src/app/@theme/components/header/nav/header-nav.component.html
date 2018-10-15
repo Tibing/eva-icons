@@ -1,0 +1,11 @@
+<ul>
+  <li *ngFor="let item of navItems" class="nav-item">
+    <a [routerLink]="item.link"
+       routerLinkActive="active">
+      <i class="nav-menu-icon"
+         [innerHTML]="item.iconName | eva: item.iconSize: item.iconSize">
+      </i>
+      <span class="title">{{ item.title }}</span>
+    </a>
+  </li>
+</ul>
