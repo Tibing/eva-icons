@@ -17,6 +17,7 @@ function replace(attrs = {}) {
 function replaceElement(element, attrs = {}) {
   const elementAttrs = getAttrs(element);
   const name = elementAttrs['data-eva'];
+
   delete elementAttrs['data-eva'];
 
   const svgString = icons[name].toSvg({
@@ -36,6 +37,7 @@ function replaceElement(element, attrs = {}) {
 function getAttrs(element) {
   return Array.from(element.attributes).reduce((attrs, attr) => {
     attrs[attr.name] = attr.value;
+
     return attrs;
   }, {});
 }

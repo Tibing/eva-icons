@@ -1,17 +1,6 @@
 $raleway-font-path: '/assets/fonts/raleway' !default;
 
 @font-face {
-  font-family: 'Raleway';
-  src: url('#{$raleway-font-path}/Raleway-Regular.eot');
-  src: local('Raleway'), local('Raleway-Regular'),
-  url('#{$raleway-font-path}/Raleway-Regular.eot?#iefix') format('embedded-opentype'),
-  url('#{$raleway-font-path}/Raleway-Regular.woff') format('woff'),
-  url('#{$raleway-font-path}/Raleway-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
   font-family: 'Raleway Bold';
   src: url('#{$raleway-font-path}/Raleway-Bold.eot');
   src: local('Raleway Bold'), local('Raleway-Bold'),

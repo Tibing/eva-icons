@@ -53,7 +53,7 @@
     width: 100%;
     border: none;
     font-family: 'Open Sans Light', sans-serif;
-    line-height: normal;
+    line-height: 1;
     font-size: nb-theme(font-size-xlg);
     padding: $search-input-padding-tops $search-input-padding-sides;
 
@@ -92,8 +92,9 @@
     margin-top: 1rem;
     text-align: center;
     font-size: nb-theme(font-size-xlg);
-    font-weight: nb-theme(font-weight-bold);
-    background-color: nb-theme(switcher-view-bg);
+    font-weight: nb-theme(font-weight-bolder);
+    background-color: nb-theme(info-bg);
+    color: nb-theme(info-fg);
     border-radius: 0.25rem;
   }
 

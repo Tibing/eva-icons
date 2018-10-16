@@ -6,7 +6,7 @@ $nb-enabled-themes: (eva);
 /* stylelint-disable */
 $nb-themes: nb-register-theme((
   font-main: 'Open Sans',
-  font-secondary: 'Raleway',
+  font-secondary: 'Raleway Bold',
 
   content-width: 1100px,
 
@@ -61,7 +61,11 @@ $nb-themes: nb-register-theme((
 
   format-name-fg: #6a7385,
 
-  popover-bg: color-white,
-  popover-fg: color-fg
+  popover-bg: color-primary,
+  popover-fg: color-white,
+  popover-border: color-primary,
+
+  info-bg: #fff2f2,
+  info-fg: #ff3d71
 
 ), eva, corporate);

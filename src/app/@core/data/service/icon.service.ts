@@ -2,12 +2,18 @@ import { of as observableOf,  Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 import { icons } from '../../../../../package-build/eva';
-import { fillOrder } from './fill-order-icons';
-import { outlineOrder } from './outline-order-icons';
+import { fillOrder } from './fill-icons-order';
+import { outlineOrder } from './outline-icons-order';
+import { iconsTags } from './icons-tags';
+
+class Icon {
+  name: string;
+  order: number;
+}
 
 class Icons {
-  fill: string[];
-  outline: string[];
+  fill: Icon[];
+  outline: Icon[];
 }
 
 export class IconServiceData {
@@ -29,11 +35,20 @@ export class IconService {
 
   constructor() {
     this.icons = Object.keys(icons)
-      .reduce((result, item, index, iconsArray): any => {
+      .reduce((result, item, index, iconsArray): Icons => {
+        // TODO: refactoring
+        let tags;
+        const groupTagName = item.replace('-outline', '');
+
+        if (iconsTags[groupTagName]) {
+          tags = iconsTags[groupTagName].concat(groupTagName);
+        }
+
         if (item.indexOf('outline') === -1) {
           const iconData = {
             name: item,
             order: fillOrder[item],
+            tags,
           };
 
           result['fill'] = result['fill'].concat(iconData);
@@ -41,6 +56,7 @@ export class IconService {
           const iconData = {
             name: item,
             order: outlineOrder[item],
+            tags,
           };
 
           result['outline'] = result['outline'].concat(iconData);
@@ -63,7 +79,7 @@ export class IconService {
 
   getFilteredIconsData(searchKey: string, type: string): Observable<IconServiceData> {
     const foundIcons = this.icons[type].filter((item) => {
-      return item.name.indexOf(searchKey.toLowerCase()) !== -1;
+      return item.tags.find((tag) => tag.indexOf(searchKey.toLowerCase()) !== -1);
     });
 
     this.data.icons = foundIcons;
