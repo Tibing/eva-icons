@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { IconService } from './service/icon.service';
+import { IconService } from './service/icons/icon.service';
 import { UrlService } from './service/url.service';
 
 const SERVICES = [

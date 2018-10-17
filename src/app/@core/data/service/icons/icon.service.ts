@@ -1,7 +1,7 @@
 import { of as observableOf,  Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
-import { icons } from '../../../../../package-build/eva';
+import { icons } from '../../../../../../package-build/eva';
 import { fillOrder } from './fill-icons-order';
 import { outlineOrder } from './outline-icons-order';
 import { iconsTags } from './icons-tags';
@@ -9,6 +9,7 @@ import { iconsTags } from './icons-tags';
 class Icon {
   name: string;
   order: number;
+  tags: string[];
 }
 
 class Icons {
@@ -32,36 +33,20 @@ export class IconService {
   };
 
   private sortIcons = (first, second) => first.order - second.order;
+  private orders = {
+    fill: fillOrder,
+    outline: outlineOrder,
+  };
 
   constructor() {
     this.icons = Object.keys(icons)
       .reduce((result, item, index, iconsArray): Icons => {
-        // TODO: refactoring
-        let tags;
-        const groupTagName = item.replace('-outline', '');
+        const itemType = item.indexOf('outline') === -1 ? 'fill' : 'outline';
+        const iconData = this.getIconData(item, itemType);
 
-        if (iconsTags[groupTagName]) {
-          tags = iconsTags[groupTagName].concat(groupTagName);
-        }
+        result[itemType] = result[itemType].concat(iconData);
 
-        if (item.indexOf('outline') === -1) {
-          const iconData = {
-            name: item,
-            order: fillOrder[item],
-            tags,
-          };
-
-          result['fill'] = result['fill'].concat(iconData);
-        } else {
-          const iconData = {
-            name: item,
-            order: outlineOrder[item],
-            tags,
-          };
-
-          result['outline'] = result['outline'].concat(iconData);
-        }
-
+        // sort items in last iteration
         if (index === iconsArray.length - 1) {
           result['outline'].sort(this.sortIcons);
           result['fill'].sort(this.sortIcons);
@@ -69,6 +54,21 @@ export class IconService {
 
         return result;
       }, { fill: [], outline: [] });
+  }
+
+  getIconData(icoName: string, iconType: string): Icon {
+    const groupTagName = icoName.replace('-outline', '');
+    const tags = this.getIconsTags(groupTagName);
+
+    return {
+      name: icoName,
+      order: this.orders[iconType][icoName],
+      tags,
+    };
+  }
+
+  getIconsTags(groupName: string): string[] {
+    return iconsTags[groupName] ? iconsTags[groupName].concat(groupName) : [groupName];
   }
 
   getIconsData(type: string): Observable<IconServiceData> {
@@ -79,7 +79,7 @@ export class IconService {
 
   getFilteredIconsData(searchKey: string, type: string): Observable<IconServiceData> {
     const foundIcons = this.icons[type].filter((item) => {
-      return item.tags.find((tag) => tag.indexOf(searchKey.toLowerCase()) !== -1);
+      return item.tags.some((tag) => tag.indexOf(searchKey.toLowerCase()) !== -1);
     });
 
     this.data.icons = foundIcons;

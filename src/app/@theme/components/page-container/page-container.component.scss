@@ -52,14 +52,13 @@
   .search-input {
     width: 100%;
     border: none;
+    font-size: 1.5rem;
     font-family: 'Open Sans Light', sans-serif;
     line-height: 1;
-    font-size: nb-theme(font-size-xlg);
     padding: $search-input-padding-tops $search-input-padding-sides;
 
     &::placeholder {
       color: $search-placeholder-color;
-      font-size: 1.5rem;
     }
 
     &::-ms-clear {
@@ -130,6 +129,10 @@
 
     eva-icon-list {
       margin-top: 2rem;
+    }
+
+    .info-message {
+      padding: 0 1.5rem;
     }
   }
 }

@@ -113,7 +113,7 @@ export const iconsTags = {
   'globe-2': ['world', 'browser', 'language', 'translate'],
   'globe-3': ['world', 'browser', 'language', 'translate'],
   'globe': ['world', 'browser', 'language', 'translate'],
-  'google': ['world', 'browser', 'language', 'translate'],
+  'google': ['world', 'browser', 'language', 'translate', 'logo'],
   'grid': [],
   'hard-drive': ['computer', 'server'],
   'hash': ['hashtag', 'number', 'pound'],
