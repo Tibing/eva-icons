@@ -11,82 +11,38 @@
   flex: 1 0 auto;
   flex-direction: row;
   align-items: center;
-  margin: 0 2rem;
+  margin: 0 1.625rem;
   justify-content: space-between;
 
   .section {
     display: flex;
-    padding: 0.875rem 0;
-  }
-
-  .logo {
-    display: flex;
-    flex: 1 0 auto;
-    flex-direction: row;
-    font-size: nb-theme(font-size-xlg);
-
-    a {
-      margin-right: 0.75rem;
-      color: $logo-fg;
-      text-decoration: none !important;
-      font-weight: bold;
-    }
-
-    .version {
-      display: inline;
-      font-size: nb-theme(font-size-xlg);
-      font-weight: bold;
-      color: $version-fg;
-    }
   }
 
   .stars {
     width: 95px;
     height: 20px;
-    margin-left: 2rem;
   }
 
   .btn-header {
     display: flex;
     align-items: center;
-    margin-left: 2rem;
+    margin-top: 1.5rem;
     color: nb-theme(color-white);
-    font-size: nb-theme(font-size-xs);
+    font-family: 'Open Sans Bold', sans-serif; // Open Sans Bold
     font-weight: nb-theme(font-weight-ultra-bold);
-    padding: 0.4rem 1rem;
-    border-radius: 0.25rem;
+    padding: 0.4rem 0.825rem;
+    border-radius: 0.625rem;
     cursor: pointer;
 
     span {
-      margin-left: 1.25rem;
+      margin-left: 1rem;
     }
   }
 
-  .btn-npm {
-    color: nb-theme(color-fg);
-    margin-left: 4rem;
-    border: 1px solid nb-theme(header-button-border);
-    font-weight: nb-theme(font-weight-ultra-bold);
-
-    &:hover {
-      background-color: nb-theme(header-button-border);
-    }
-
-    span {
-      text-transform: uppercase;
-    }
-  }
-
-  .npm-icon {
-    width: 1.5rem;
-    height: 1.5rem;
-    background: url('../../../../assets/img/npm.svg') no-repeat;
-    background-position: 50% 50%;
-    background-size: cover;
-  }
-
-  @include media-breakpoint-down(xl) {
-    margin: 0 1rem;
+  .btn-download {
+    height: 3.5rem;
+    width: 13.625rem;
+    box-shadow: 0 6px 10px 0 rgba(51, 102, 255, 0.16);
   }
 
   @include media-breakpoint-up(sm) {
@@ -96,10 +52,8 @@
     }
   }
 
-  @include media-breakpoint-up(is) {
-    .section {
-      padding: 0.875rem 0;
-    }
+  @include media-breakpoint-down(xl) {
+    margin: 0 1rem;
   }
 
   @include media-breakpoint-down(lg) {

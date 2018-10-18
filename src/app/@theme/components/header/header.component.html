@@ -1,8 +1,4 @@
 <div class="section left">
-  <div class="logo">
-    <a routerLink="/">Eva Icons</a>
-    <span class="version">v.{{ currentVersion }}</span>
-  </div>
   <iframe class="stars"
           src="https://ghbtns.com/github-btn.html?user=akveo&repo=nebular&type=star&count=true"
           frameborder="0"
@@ -10,15 +6,10 @@
   </iframe>
 </div>
 <div class="section right">
-  <eva-header-nav></eva-header-nav>
-  <a class="btn btn-header btn-npm">
-    <i class="npm-icon"></i>
-    <span>Npm</span>
-  </a>
   <a class="btn btn-primary btn-download btn-header"
      href="{{ zipUrl }}"
      download>
     <i [innerHTML]="'download' | eva: 24: 24: '#ffffff'"></i>
-    <span>Download</span>
+    <span>Download pack</span>
   </a>
 </div>

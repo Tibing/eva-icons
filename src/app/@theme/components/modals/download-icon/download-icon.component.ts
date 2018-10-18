@@ -13,7 +13,7 @@ export class DownloadIconComponent implements AfterViewInit {
   @Input() iconType: string = '';
 
   selectedFormat: string;
-  downloadControls: { format: string; title: string }[] = [ ];
+  downloadControls: { format: string; title: string }[] = [];
 
   constructor(private changeDetectorRef: ChangeDetectorRef,
               private urlService: UrlService) {}

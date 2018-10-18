@@ -3,22 +3,48 @@
 
 @include nb-install-component() {
   $primary: nb-theme(color-primary);
-  $search-input-padding-sides: 2rem;
-  $search-input-padding-tops: 1.625rem;
+  $search-input-padding-sides: 1.5rem;
+  $search-input-padding-tops: 1rem;
   $search-input-mobile-padding-sides: 0.5rem;
   $search-input-mobile-padding-tops: 1rem;
   $search-placeholder-color: #a6aebd;
 
-  margin-top: 3.5rem;
+  margin-top: 8.4rem;
   margin-bottom: 4rem;
   display: block;
 
+  .title {
+    position: relative;
+  }
+
+  .version {
+    background-color: #edfff3;  // TODO: should be var
+    position: relative;
+    bottom: 0.35rem;
+    font-family: 'Raleway Medium', sans-serif;
+    font-size: nb-theme(font-size);
+    font-weight: nb-theme(font-weight-bold);
+    color: #0fba81; // TODO: should be var
+    padding: 0.3125rem 0.6875rem 0.3125rem 0.8125rem; // TODO: round
+    border-radius: 0.625rem;
+    text-transform: none;
+  }
+
   h1 {
-    font-family: 'Raleway Extra Bold', sans-serif;
+    font-family: 'Raleway Bold', sans-serif;
     color: $primary;
     font-size: 5rem;
+    padding-left: 5.5rem;
     text-transform: capitalize;
-    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+
+  .description {
+    color: #8992a3;
+    font-family: 'Raleway Medium', sans-serif;
+    font-size: nb-theme(font-size-lg);
+    line-height: 1.625;
+    margin-bottom: 5rem;
   }
 
   // search
@@ -26,44 +52,24 @@
     width: 100%;
     position: relative;
 
-    &::after {
-      content: '';
-      position: absolute;
-      border-top: 4px solid $primary;
-      width: 100%;
-      left: 0;
-      bottom: 0;
-      border-radius: nb-theme(radius);
-      box-shadow: 0 8px 32px 0 #edf0f5;
-    }
-
     i {
-      color: $primary;
       position: absolute;
-      right: $search-input-padding-sides;
-      top: calc(#{$search-input-padding-tops} - 0.25rem);
-
-      .eva-search-outline {
-        fill: $primary;
-      }
+      left: $search-input-padding-sides;
+      top: 0.8rem;
     }
   }
 
   .search-input {
     width: 100%;
     border: none;
-    font-size: 1.5rem;
-    font-family: 'Open Sans Light', sans-serif;
-    line-height: 1;
+    font-size: nb-theme(font-size-lg);
+    font-family: 'Open Sans SemiBold', sans-serif;
+    background-color: #edf0f5; // TODO: should be var
+    color: $primary;
     padding: $search-input-padding-tops $search-input-padding-sides;
-
-    &::placeholder {
-      color: $search-placeholder-color;
-    }
-
-    &::-ms-clear {
-      display: none;
-    }
+    padding-left: 4rem;
+    line-height: 1.5;
+    border-radius: 0.625rem;
   }
   // search
 
