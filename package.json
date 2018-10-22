@@ -59,6 +59,7 @@
     "classnames": "^2.2.6",
     "codelyzer": "~4.2.1",
     "cross-env": "^5.2.0",
+    "css-loader": "^1.0.0",
     "fs-extra": "^7.0.0",
     "gm": "^1.23.1",
     "html-minifier": "^3.5.20",

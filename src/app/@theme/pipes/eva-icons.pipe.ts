@@ -13,6 +13,9 @@ export class EvaIconsPipe implements PipeTransform {
       width,
       height,
       fill,
+      animation: {
+        type: 'hover-zoom', // hover-pulse, hover-shake, hover-zoom, hover-flip
+      },
     }));
   }
 }

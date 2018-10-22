@@ -13,13 +13,15 @@ class Icon {
   }
 
   toSvg(attrs = {}) {
+    const { animation, ...remAttrs } = attrs;
     const combinedAttrs = {
       ...this.attrs,
-      ...attrs,
-      ...{ class: classnames(this.attrs.class, attrs.class) },
+      ...remAttrs,
+      ...{ class: classnames(this.attrs.class, attrs.class, `animation infinite ${animation.type}`) },
     };
+    const style = `style="width: ${remAttrs.width}px; height: ${remAttrs.height}px"`;
 
-    return `<svg ${attrsToString(combinedAttrs)}>${this.contents}</svg>`;
+    return `<i class="hover"><svg ${attrsToString(combinedAttrs)}>${this.contents}</svg></i>`;
   }
 
   toString() {
