@@ -6,10 +6,27 @@
   </iframe>
 </div>
 <div class="section right">
-  <a class="btn btn-primary btn-download btn-header"
-     href="{{ zipUrl }}"
-     download>
+
+  <div class="btn btn-primary btn-download btn-header">
     <i [innerHTML]="'download' | eva: 24: 24: '#ffffff'"></i>
     <span>Download pack</span>
-  </a>
+    <div class="download-items-container">
+      <ul>
+        <li>
+          <a href="{{ zipUrl }}"
+             download>
+            <i [innerHTML]="'cube-outline' | eva: 24: 24: '#ffffff'"></i>
+            <span>Download all pack</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ zipUrl }}"
+             download>
+            <i [innerHTML]="'download' | eva: 24: 24: '#ffffff'"></i>
+            <span>NPM</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>

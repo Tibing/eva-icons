@@ -1,4 +1,5 @@
 <div class="title">
+  <i class="heart"></i>
   <h1>
     Eva icons
     <span class="version">v.1.0.0</span>
@@ -8,12 +9,23 @@
   EVA icons is a pack of 320 delightful, beautifully crafted symbols for common actions and items. Download on desktop to use them in your digital products for Android, iOS, and web И что-то про анимацию
 </p>
 
-<div class="search">
-  <i [innerHTML]="'search-outline' | eva: 32: 32: '#a6aebd'"></i>
+<div class="search" [class.search-focus]="isInputFocus">
+  <i [innerHTML]="'search-outline' | eva: 32: 32"></i>
   <input class="search-input"
+         (focus)="handleFocusInput()"
+         (blur)="handleBlurInput()"
          #searchInput
          autocomplete="off"
          tabindex="-1"/>
+</div>
+
+<div class="actions">
+  <section class="left-actions">
+    <eva-type-switcher></eva-type-switcher>
+  </section>
+  <section class="right-action">
+    <eva-animation-switcher></eva-animation-switcher>
+  </section>
 </div>
 
 <div class="icons" #iconsBlock>

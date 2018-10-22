@@ -36,7 +36,7 @@ $nb-themes: nb-register-theme((
 
   menu-bg: transparent,
   menu-item-padding: 0.675rem 1rem,
-  menu-item-fg: #d8e1f0,
+  menu-item-fg: #8992a3,
   menu-active-fg: color-primary,
   menu-font-size: 0.95rem,
   menu-font-weight: font-weight-normal,
@@ -61,9 +61,11 @@ $nb-themes: nb-register-theme((
 
   format-name-fg: #6a7385,
 
-  popover-bg: color-primary,
-  popover-fg: color-white,
-  popover-border: color-primary,
+  popover-bg: #0d1c2e,
+  popover-fg: #ffffff,
+  popover-border: #0d1c2e,
+  popover-border-radius: 0.75rem,
+  popover-arrow-size: 6px,
 
   info-bg: #fff2f2,
   info-fg: #ff3d71

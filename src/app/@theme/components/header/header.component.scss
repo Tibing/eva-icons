@@ -28,7 +28,7 @@
     align-items: center;
     margin-top: 1.5rem;
     color: nb-theme(color-white);
-    font-family: 'Open Sans Bold', sans-serif; // Open Sans Bold
+    font-family: 'Open Sans Bold', sans-serif;
     font-weight: nb-theme(font-weight-ultra-bold);
     padding: 0.4rem 0.825rem;
     border-radius: 0.625rem;
@@ -40,9 +40,57 @@
   }
 
   .btn-download {
+    position: relative;
     height: 3.5rem;
     width: 13.625rem;
     box-shadow: 0 6px 10px 0 rgba(51, 102, 255, 0.16);
+
+    .download-items-container {
+      display: none;
+    }
+
+    &:hover {
+      background-color: $primary;
+
+      .download-items-container {
+        display: block;
+        padding-top: 0.625rem;
+        position: absolute;
+        top: 100%;
+        left: 0;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0.625rem 0;
+        background-color: $primary;
+        box-shadow: 0 6px 10px 0 rgba(51, 102, 255, 0.16);
+        border-radius: 0.625rem;
+
+        li {
+          list-style: none;
+
+
+          a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            text-transform: none;
+            padding: 1rem 0.875rem;
+            font-family: 'Open Sans SemiBold', sans-serif;
+            color: nb-theme(color-white);
+
+            &:hover {
+              background-color: #598bff;
+            }
+
+            &.active, &:active {
+              background-color: #284de0;
+            }
+          }
+        }
+      }
+    }
   }
 
   @include media-breakpoint-up(sm) {

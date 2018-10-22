@@ -83,7 +83,7 @@ export class IconService {
     });
 
     this.data.icons = foundIcons;
-    this.data.message = foundIcons.length === 0 ? 'There are no results that match your search' : '';
+    this.data.message = foundIcons.length === 0 ? 'Oops… here are no results that match your search.' : '';
 
     return observableOf(this.data);
   }

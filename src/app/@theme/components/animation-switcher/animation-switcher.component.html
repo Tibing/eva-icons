@@ -1,0 +1,8 @@
+<ul>
+  <li *ngFor="let item of animationItems" class="nav-item">
+    <i class="nav-menu-icon"
+       [innerHTML]="item.iconName | eva">
+    </i>
+    <span class="title">{{ item.title }}</span>
+  </li>
+</ul>

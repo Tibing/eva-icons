@@ -5,11 +5,12 @@ import { CommonModule } from '@angular/common';
 // components
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
-import { HeaderNavComponent } from './components/header/nav/header-nav.component';
 import { DownloadIconComponent } from './components/modals/download-icon/download-icon.component';
 import { PageContainerComponent } from './components/page-container/page-container.component';
 import { ListViewSwitcherComponent } from './components/list-view-switcher/list-view-switcher.component';
 import { IconListComponent } from './components/icon-list/icon-list.component';
+import { TypeSwitcherComponent } from './components/type-switcher/type-switcher.component';
+import { AnimationSwitcherComponent } from './components/animation-switcher/animation-switcher.component';
 // components
 
 // services
@@ -32,6 +33,17 @@ import {
   NbPopoverModule,
 } from '@nebular/theme';
 
+const COMPONENTS = [
+  FooterComponent,
+  HeaderComponent,
+  DownloadIconComponent,
+  PageContainerComponent,
+  ListViewSwitcherComponent,
+  IconListComponent,
+  TypeSwitcherComponent,
+  AnimationSwitcherComponent,
+];
+
 const PIPES = [
   EvaIconsPipe,
 ];
@@ -50,13 +62,7 @@ const PIPES = [
     NbPopoverModule,
   ],
   declarations: [
-    FooterComponent,
-    HeaderComponent,
-    HeaderNavComponent,
-    DownloadIconComponent,
-    PageContainerComponent,
-    ListViewSwitcherComponent,
-    IconListComponent,
+    ...COMPONENTS,
 
     ...PIPES,
   ],

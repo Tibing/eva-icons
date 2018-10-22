@@ -8,7 +8,7 @@ export class EvaIconsPipe implements PipeTransform {
 
   constructor(private sanitizer: DomSanitizer) {}
 
-  transform(icon: string, height: number = 24, width: number = 24, fill: string = 'inherit') {
+  transform(icon: string, height: number | string = 24, width: number | string = 24, fill: string = 'inherit') {
     return this.sanitizer.bypassSecurityTrustHtml(icons[icon].toSvg({
       width,
       height,

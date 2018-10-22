@@ -18,6 +18,7 @@ import { fromEvent } from 'rxjs/internal/observable/fromEvent';
 import { IconService, IconServiceData } from '../../../@core/data/service/icons/icon.service';
 import { debounceTime, delay, map, mergeMap, takeWhile, tap } from 'rxjs/operators';
 import { DownloadIconComponent } from '../modals/download-icon/download-icon.component';
+import { DialogStateService } from '../../services/dialog-state.service';
 
 @Component({
   selector: 'eva-page-container',
@@ -33,6 +34,7 @@ export class PageContainerComponent implements AfterViewInit, OnDestroy {
 
   @Input() iconsType: string;
 
+  isInputFocus = false;
   icons: string[] = [];
   message: string = '';
   breakpoint: NbMediaBreakpoint = { name: '', width: 0 };
@@ -43,7 +45,8 @@ export class PageContainerComponent implements AfterViewInit, OnDestroy {
               private activatedRoute: ActivatedRoute,
               private dialogService: NbDialogService,
               private breakpointService: NbMediaBreakpointsService,
-              private themeService: NbThemeService) {
+              private themeService: NbThemeService,
+              private dialogStateService: DialogStateService) {
     this.breakpoints = this.breakpointService.getBreakpointsMap();
 
     this.themeService.onMediaQueryChange()
@@ -123,15 +126,29 @@ export class PageContainerComponent implements AfterViewInit, OnDestroy {
     const modalRef = this.dialogService.open(
       DownloadIconComponent,
       {
-        hasBackdrop: true,
+        closeOnBackdropClick: false,
         backdropClass: 'download-icon',
-        closeOnBackdropClick: true,
       },
     );
     const componentInstance = modalRef.componentRef.instance;
 
     componentInstance.selectedIcon = icon;
     componentInstance.iconType = this.iconsType;
+
+    this.dialogStateService.changeDialogState('open');
+
+    modalRef.onClose
+      .subscribe(() => {
+        this.dialogStateService.changeDialogState('close');
+      });
+  }
+
+  handleFocusInput() {
+    this.isInputFocus = true;
+  }
+
+  handleBlurInput() {
+    this.isInputFocus = false;
   }
 
   ngOnDestroy() {

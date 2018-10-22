@@ -10,7 +10,7 @@
   $search-placeholder-color: #a6aebd;
 
   margin-top: 8.4rem;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   display: block;
 
   .title {
@@ -52,11 +52,30 @@
     width: 100%;
     position: relative;
 
+
+
     i {
       position: absolute;
       left: $search-input-padding-sides;
       top: 0.8rem;
+      fill: #a6aebd; // TODO: move to var
     }
+
+    &.search-focus {
+      i {
+        fill: $primary;
+      }
+    }
+  }
+
+  .heart {
+    position: absolute;
+    top: 1.25rem;
+    left: 0.5rem;
+    width: 3.75rem;
+    height: 3.75rem;
+    background: url('../../../../assets/img/heart.svg') no-repeat;
+    background-position: 50% 50%;
   }
 
   .search-input {
@@ -73,6 +92,14 @@
   }
   // search
 
+  // actions
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4.625rem;
+  }
+  // actions
+
   // icons container
   .icons {
     position: relative;
@@ -80,7 +107,7 @@
   // icons container
 
   eva-icon-list {
-    margin-top: 5rem;
+    margin-top: 4rem;
   }
 
   .spinner-container {
@@ -94,13 +121,14 @@
     align-items: center;
     justify-content: center;
     height: 7rem;
-    margin-top: 1rem;
+    width: 70%;
+    margin: 2.5rem auto;
     text-align: center;
-    font-size: nb-theme(font-size-xlg);
-    font-weight: nb-theme(font-weight-bolder);
+    font-family: 'Raleway Medium', sans-serif;
+    font-size: nb-theme(font-size-lg);
     background-color: nb-theme(info-bg);
     color: nb-theme(info-fg);
-    border-radius: 0.25rem;
+    border-radius: 0.75rem;
   }
 
   @include media-breakpoint-down(lg) {

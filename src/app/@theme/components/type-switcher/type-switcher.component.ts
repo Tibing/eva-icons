@@ -1,25 +1,23 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'eva-header-nav',
-  templateUrl: './header-nav.component.html',
-  styleUrls: ['./header-nav.component.scss'],
+  selector: 'eva-type-switcher',
+  templateUrl: './type-switcher.component.html',
+  styleUrls: ['./type-switcher.component.scss'],
 })
 
-export class HeaderNavComponent {
+export class TypeSwitcherComponent {
 
   navItems = [
     {
       link: '/outline',
       title: 'Outline',
       iconName: 'star-outline',
-      iconSize: 28,
     },
     {
       link: '/fill',
       title: 'Fill',
       iconName: 'star',
-      iconSize: 28,
     },
   ];
 }
